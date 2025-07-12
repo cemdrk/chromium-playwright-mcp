@@ -1,0 +1,24 @@
+
+services:
+  browser:
+    build:
+      context: ./browser
+    security_opt:
+      - seccomp=unconfined
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Istanbul
+      - CHROME_CLI=--remote-debugging-port=9222
+    ports:
+      - 127.0.0.1:3000:3000
+      - 127.0.0.1:3001:3001
+    shm_size: 1gb
+
+  mcp:
+    init: true
+    build:
+      context: ./mcp
+    command: mcp-server-playwright --cdp-endpoint http://browser:9330 --host 0.0.0.0 --port 9000
+    ports:
+      - 8000:9000
