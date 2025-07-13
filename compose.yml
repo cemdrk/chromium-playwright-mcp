@@ -21,4 +21,4 @@ services:
       context: ./mcp
     command: mcp-server-playwright --cdp-endpoint http://browser:9330 --host 0.0.0.0 --port 9000
     ports:
-      - 8000:9000
+      - 127.0.0.1:8000:9000:9000
