@@ -11,8 +11,34 @@ This project sets up two Docker containers:
 
 ## Quick Start
 
+### Using Docker Compose
+
 ```bash
 docker compose up
+```
+
+### Using Makefile
+
+```bash
+# Start all services
+make up
+
+# Start specific service
+make up-mcp
+make up-browser
+
+# Stop all services
+make down
+
+# Stop specific service
+make down-mcp
+make down-browser
+
+# Build images
+make build
+
+# View logs
+make logs
 ```
 
 This will start both services:
@@ -66,7 +92,15 @@ The browser container supports these environment variables:
 
 1. Start the services:
    ```bash
+   # Using Docker Compose
    docker compose up -d
+   
+   # Using Makefile
+   make up
+   
+   # Start only specific service
+   make up-browser  # Just the browser
+   make up-mcp      # Just the MCP server
    ```
 
 2. Access the browser UI at `http://localhost:3000`
