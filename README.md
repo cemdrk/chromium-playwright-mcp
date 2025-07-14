@@ -59,7 +59,7 @@ This will start both services:
   - Nginx proxy for DevTools on port `9330`
 
 #### MCP Container
-- **Base**: Node.js 22
+- **Base**: Node.js 22 (Current LTS)
 - **Package**: `@playwright/mcp`
 - **Connection**: Connects to browser via `http://browser:9330`
 - **Port**: Exposes MCP server on port `9000` (mapped to host `8000`)
@@ -134,6 +134,5 @@ docker compose logs -f mcp
 
 ## Security Notes
 
-- The browser runs with `seccomp=unconfined` for compatibility
 - Services are bound to `127.0.0.1` for local access only
 - Remote debugging is enabled for automation purposes
